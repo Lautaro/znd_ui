@@ -1,0 +1,111 @@
+/* Znd layout: placement and the looks that are not one of the skin's named styles (labels, fields, the waveform box,
+   chips, overlays, the curve grounds, the analyser text, the popover). Skin/ZndSkin.uss holds the button, toggle,
+   slider and box looks. Colours and sizes here are the real tool's; change freely. */
+
+.znd-root { padding: 3px 0 0 0; }
+
+/* ── plain labels ── */
+.znd-root .znd-lbl { margin: 0; padding: 0 1px 0 1px; color: rgb(196,196,196); -unity-text-align: middle-left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.znd-root .znd-bold { -unity-font-style: bold; }
+.znd-root .znd-mini { font-size: 10px; padding: 0 2px 0 2px; color: rgb(210,210,210); }
+.znd-root .znd-minilabel { font-size: 9px; -unity-text-align: middle-left; padding: 0; margin: 0; color: rgb(196,196,196); }
+.znd-root .znd-greymini { font-size: 10px; padding: 0; -unity-text-align: middle-center; color: rgb(128,128,128); text-overflow: clip; overflow: visible; }
+.znd-root .znd-subtle { color: rgb(224,224,224); padding: 1px 2px 1px 2px; margin: 0 0 0 4px; -unity-text-align: upper-left; }
+.znd-root .znd-guilabel { padding: 0 2px 0 2px; }
+.znd-root .znd-subheader { padding: 0 2px 0 2px; margin: 0; -unity-text-align: middle-left; color: rgb(224,224,224); }
+.znd-root .znd-warntext { color: rgb(247,204,102); }
+.znd-root .znd-warnmark { color: rgb(247,204,102); -unity-text-align: middle-center; padding: 0; }
+.znd-root .znd-codemark { color: rgb(255,150,40); -unity-text-align: middle-center; padding: 0; font-size: 10px; text-overflow: clip; overflow: visible; }
+.znd-root .znd-summary { cursor: link; }
+.znd-root .znd-grip { cursor: move-arrow; }
+.znd-root .znd-axislabel { background-color: rgba(0,0,0,0.55); padding: 0 2px 0 2px; border-radius: 2px; }
+
+/* ── fields ── */
+.znd-root .znd-namefield { margin: 0; }
+.znd-root .znd-tagsfield.unity-button { background-color: rgba(0,0,0,0); background-image: none; border-width: 0; margin: 0; padding: 0; -unity-text-align: upper-left; white-space: normal; overflow: hidden; color: rgb(163,198,255); }
+.znd-root .znd-tagsfield.unity-button:hover, .znd-root .znd-tagsfield.unity-button:active { background-color: rgba(0,0,0,0); }
+
+/* The Source row: a 150 px label column, then a field-looking box with the audio icon, the name and a picker circle. */
+.znd-root .znd-sourcerow { margin: 1px 0 1px 0; }
+.znd-root .znd-sourcelabel { width: 150px; min-width: 150px; }
+.znd-root .znd-sourcefield { flex-grow: 1; flex-direction: row; margin-left: 2px; background-color: rgb(42,42,42); border-width: 1px; border-color: rgb(33,33,33); border-radius: 3px; align-items: center; }
+.znd-root .znd-sourcefield__icon { width: 14px; height: 14px; margin: 0 3px 0 3px; }
+.znd-root .znd-sourcefield__name { flex-grow: 1; color: rgb(210,210,210); -unity-text-align: middle-left; }
+.znd-root .znd-sourcefield__pick.unity-button { width: 18px; height: 16px; margin: 0; padding: 1px; background-color: rgba(0,0,0,0); border-width: 0; }
+
+/* ── toggles and icons inside toggles ── */
+.znd-root .znd-toggle--mark { -unity-font-style: bold; }
+.znd-root .znd-editicon { position: absolute; left: 50%; top: 50%; width: 12.4px; height: 12.4px; translate: -50% -50%; }
+.znd-root .znd-eyeicon { position: absolute; left: 50%; top: 50%; width: 13px; height: 13px; translate: -50% -50%; }
+.znd-root .znd-waveicon { position: absolute; left: 50%; top: 50%; width: 12px; height: 7px; translate: -50% -50%; }
+.znd-root .unity-button:disabled { opacity: 0.2; }
+
+/* ── the waveform ── */
+.znd-root .znd-waveform-box { background-color: rgba(0,0,0,0.25); border-width: 1px; border-color: rgba(0,0,0,0.35); border-radius: 3px; }
+.znd-root .znd-trimhandle { background-color: rgb(255,255,255); cursor: resize-horizontal; }
+.znd-root .znd-xmix { background-color: rgba(123,176,211,0.40); }
+.znd-root .znd-xmix--min { background-color: rgba(123,176,211,0.50); }
+
+/* ── the chain ── */
+.znd-root .znd-placedrow { position: relative; }
+.znd-root .znd-dragging { background-color: rgba(255,255,255,0.06); }
+.znd-root .znd-dropline { background-color: rgba(102,204,255,0.9); }
+.znd-root .znd-errorbar { background-color: rgb(242,191,77); }
+.znd-root .znd-bolt { }
+
+/* The code chip on a modifier card: grey outline when code cannot reach it, amber when it can. Its fill shows the value
+   code has it at while the sound plays; it brightens briefly each time a new value arrives. */
+.znd-root .znd-codechip { border-width: 1px; border-color: rgba(128,128,128,0.55); border-radius: 3px; overflow: hidden; background-color: rgba(0,0,0,0.15); }
+.znd-root .znd-codechip--on { border-color: rgba(255,150,40,0.85); }
+.znd-root .znd-codechip--pulse { background-color: rgba(255,150,40,0.35); }
+.znd-root .znd-codechip__fill { position: absolute; left: 0; top: 0; bottom: 0; background-color: rgba(255,150,40,0.3); }
+.znd-root .znd-codechip__text { font-size: 10px; color: rgb(150,150,150); -unity-text-align: middle-left; padding: 0 4px 0 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.znd-root .znd-codechip--on .znd-codechip__text { color: rgb(255,170,70); }
+
+/* The sound's own values (Volume, Pitch, Speed, Drive): shown with what moves them. */
+.znd-root .znd-ownvalue { background-color: rgba(0,0,0,0.22); border-width: 1px; border-color: rgba(128,128,128,0.35); border-radius: 2px; overflow: hidden; }
+.znd-root .znd-ownvalue--bound { border-color: rgba(115,191,255,0.55); }
+.znd-root .znd-ownvalue--code { border-color: rgba(255,150,40,0.8); }
+.znd-root .znd-ownvalue__text { font-size: 10px; color: rgb(170,170,178); -unity-text-align: middle-left; padding: 0 5px 0 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.znd-root .znd-ownvalue--bound .znd-ownvalue__text { color: rgb(215,215,222); }
+.znd-root .znd-ownvalue--code .znd-ownvalue__text { color: rgb(255,170,70); }
+
+/* Snapshot chips; the one being glided to fills as the glide goes. */
+.znd-root .znd-snapchip { border-width: 1px; border-color: rgba(128,128,128,0.5); border-radius: 3px; background-color: rgba(0,0,0,0.2); overflow: hidden; }
+.znd-root .znd-snapchip:hover { border-color: rgba(200,200,210,0.8); }
+.znd-root .znd-snapchip--target { border-color: rgba(115,191,255,0.9); }
+.znd-root .znd-snapchip__fill { position: absolute; left: 0; top: 0; bottom: 0; background-color: rgba(115,191,255,0.3); }
+.znd-root .znd-snapchip__text { position: absolute; left: 0; right: 0; top: 0; bottom: 0; font-size: 10px; color: rgb(215,215,222); -unity-text-align: middle-center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* A modifier's curve ground. */
+.znd-root .znd-curveground { background-color: rgb(26,26,31); }
+.znd-root .znd-curveground__grid { background-color: rgba(255,255,255,0.06); }
+.znd-root .znd-curveground__base { background-color: rgba(255,255,255,0.12); }
+.znd-root .znd-curvehead { background-color: rgba(255,255,255,0.9); }
+.znd-root .znd-curvedot { background-color: rgb(255,217,89); }
+.znd-root .znd-curvecap { font-size: 10px; color: rgb(204,204,219); -unity-text-align: upper-left; padding: 0 2px 0 2px; }
+.znd-root .znd-curvelabel { font-size: 9px; color: rgb(158,158,173); -unity-text-align: upper-left; padding: 0 2px 0 2px; }
+.znd-root .znd-curvelabel.znd-right { -unity-text-align: upper-right; }
+
+/* Step bars */
+.znd-root .znd-stepbars__baseline { background-color: rgba(255,255,255,0.35); }
+.znd-root .znd-stepbars__hover { background-color: rgba(255,255,255,0.07); }
+.znd-root .znd-stepbars__hover--playing { background-color: rgba(255,217,89,0.28); }
+
+/* The live overlay on a moving slider. */
+.znd-root .znd-live__mark-dark { background-color: rgba(13,13,20,0.85); }
+.znd-root .znd-live__mark-bright { background-color: rgba(252,252,255,0.95); }
+.znd-root .znd-live__band--up { background-color: rgba(115,191,255,0.5); }
+.znd-root .znd-live__band--down { background-color: rgba(10,10,15,0.72); }
+.znd-root .znd-live__band--driven { background-color: rgba(255,150,40,0.55); }
+.znd-root .znd-live__tick { background-color: rgb(255,170,60); }
+.znd-root .znd-live__pulse { background-color: rgba(0,0,0,0); border-width: 1px; border-color: rgb(255,150,40); }
+
+/* The analyser's narrow gain slider: the number box only. */
+.znd-root .znd-narrowslider .unity-base-slider__drag-container { display: none; }
+.znd-root .znd-narrowslider .unity-base-slider__input { justify-content: flex-end; }
+.znd-root .znd-narrowslider .unity-base-slider__text-field { width: 50px; flex-grow: 0; margin-right: 0; }
+
+/* ── the popover card and popup windows ── */
+.znd-root .znd-popover { background-color: rgb(34,46,58); border-width: 1px; border-color: rgba(123,176,211,0.6); border-radius: 4px; padding: 6px; }
+.znd-root.znd-popupwindow { padding: 6px 0 0 6px; background-color: rgb(40,40,40); }
